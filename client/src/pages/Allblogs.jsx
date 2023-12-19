@@ -41,12 +41,12 @@ const Allblogs = () => {
                     (<>
                         <div className="flex flex-wrap justify-around mt-5 p-3 gap-6 ">
                             {blogs.map((blog) => (
-                                <div key={blog._id} className="max-w-sm shadow-gray-600 hover:scale-105 w-[200px] h-[300px] sm:w-[300px] sm:h-[400px] bg-green-500 rounded overflow-hidden shadow-lg">
-                                    <img className="w-full h-[150px] sm:h-[250px]" src={blgdmoimg} alt="image.png" />
+                                <div key={blog._id} className="max-w-sm shadow-gray-600 hover:scale-105 w-[200px] h-auto sm:w-[300px] bg-green-500 rounded overflow-hidden shadow-lg">
+                                    <img className="w-full h-[150px] sm:h-[250px]" src={blog.image} alt="image.png" />
                                     <div className="px-6 py-4">
                                         <div className="font-bold text-xl mb-2">{blog.title}</div>
                                         <p className="text-gray-700 text-base">
-                                            {blog.description}
+                                        {blog.description.split(' ').slice(0,6).join(' ')}...
                                         </p>
                                     </div>
                                     <button onClick={() => { navigate(`/thisblog/${blog._id}`) }} className='bg-gray-600 hover:bg-green-900 py-2 w-full self-center text-lg font-bold text-white'>Read Blog</button>
