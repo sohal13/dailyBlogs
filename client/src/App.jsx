@@ -22,7 +22,7 @@ import About from "./pages/About"
 function App() {
 
   return (
-    <div className=" bg-green-200 w-full h-full">
+    <div className=" bg-green-200 w-full min-h-screen  h-full">
       <BrowserRouter>
         <Header />
         <Routes>
