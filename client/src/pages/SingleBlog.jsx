@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import BlogTime from '../components/BlogTime';
 
-export const SingleBlog = () => {
+const SingleBlog = () => {
 
     const navigate = useNavigate();
 
@@ -94,3 +94,4 @@ export const SingleBlog = () => {
         </div>
     )
 }
+export default SingleBlog;
