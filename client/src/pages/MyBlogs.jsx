@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import blgdmoimg from '../assets/blogdmo.png';
 import { useNavigate } from 'react-router-dom';
+import BlogTime from '../components/BlogTime';
 
 
 const MyBlogs = () => {
@@ -59,12 +60,13 @@ const MyBlogs = () => {
                                     <div key={blog._id} className="max-w-sm shadow-gray-600 hover:scale-105 w-[200px] h-auto sm:w-[300px] sm:h-auto bg-green-500 rounded overflow-hidden shadow-lg">
 
                                         <img className="w-full h-[150px] sm:h-[250px]" src={blog.image} alt="image.png" />
-                                        <div className="px-6 py-4">
+                                        <div className="px-2 py-2">
                                             <div className="font-bold text-xl mb-2">{blog.title}</div>
                                             <p className="text-gray-700 text-base">
-                                                {blog.description}
+                                                {blog.description.split(' ').slice(0,6).join(' ')}..
                                             </p>
                                         </div>
+                                        <BlogTime blog={blog}/>
                                         <button onClick={() => { navigate(`/thisblog/${blog._id}`) }} className='bg-gray-600 hover:bg-green-900 py-2 w-full self-center text-lg font-bold text-white'>Read Blog</button>
                                     </div>
                                 ))}

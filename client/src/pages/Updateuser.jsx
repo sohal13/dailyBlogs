@@ -24,7 +24,6 @@ const Updateuser = () => {
     const [formData, setFormData] = useState({})
     const { loading } = useSelector((state) => state.user);
 
-    console.log(formData);
 
     useEffect(() => {
         if (file) {

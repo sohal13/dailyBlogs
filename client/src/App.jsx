@@ -16,6 +16,8 @@ import Allblogs from "./pages/Allblogs"
 import { SingleBlog } from "./pages/singleBlog"
 import CreateBlog from "./pages/CreateBlog"
 import MyBlogs from "./pages/MyBlogs"
+import EditBlog from "./pages/EditBlog"
+import About from "./pages/About"
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPass />} />
           <Route path="/reset/:token" element={<ForgotResetPass />} />
           <Route path="/thisblog/:id" element={< SingleBlog />} />
+          <Route path="/about" element={< About />} />
+
 
           <Route element={<PrivateRouts />}>
             <Route path="/profile" element={<Profile />} />
@@ -39,6 +43,8 @@ function App() {
             <Route path="/account/updateuser" element={<Updateuser />} />
             <Route path="/createblog" element={< CreateBlog />} />
             <Route path="/myblogs" element={< MyBlogs />} />
+            <Route path="/editblog/:id" element={< EditBlog />} />
+
 
 
           </Route>

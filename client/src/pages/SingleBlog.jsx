@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+import BlogTime from '../components/BlogTime';
 
 export const SingleBlog = () => {
 
@@ -54,6 +55,7 @@ export const SingleBlog = () => {
         }
     }
 
+    console.log(blog);
     return (
         <div className='max-w-6xl mx-auto flex flex-col'>
             {loading ? (<>
@@ -72,14 +74,17 @@ export const SingleBlog = () => {
                             </>)}
                         {currentUser._id === creater._id ? (
                             <div className='flex justify-between bg-green-200'>
-                                <button className='bg-green-500 px-4 py-1 hover:scale-105' >Edit</button>
+                                <Link to={`/editblog/${blog._id}`}><button className='bg-green-500 px-4 py-1 hover:scale-105'>Edit</button></Link>
                                 <button onClick={() => handelDelete(blog)} className='bg-red-500 px-4 py-1 hover:scale-105'>Delete</button>
                             </div>) : ("")}
                         <img className="w-screen h-[300px]" src={blog?.image} alt="image.png" />
-                        <div className="px-6 py-4">
+                        <BlogTime blog={blog}/>
+                        <div className="px-2 py-2">
                             <div className="font-bold text-xl mb-2">{blog?.title}</div>
                             <p className="text-gray-700 text-base">
                                 {blog?.description}
+                                {blog?.description}
+
                             </p>
                         </div>
 

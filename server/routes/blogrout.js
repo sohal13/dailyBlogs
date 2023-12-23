@@ -10,7 +10,7 @@ router.get('/thisblog/:id', getSingleblog);
 
 router.post('/createblog', verifyToken, createBlog);
 
-router.put('/updateblog/:id', verifyToken, updateBlog);
+router.post('/editblog/:id', verifyToken, updateBlog);
 
 router.delete('/deleteblog/:id', verifyToken, deleteBlog);
 
