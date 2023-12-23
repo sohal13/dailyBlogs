@@ -20,8 +20,9 @@ const SignUp = () => {
 
     const handelSubmit = async (e) => {
         e.preventDefault();
-        setLaoding(true)
+       
         try {
+            setLaoding(true)
             if (inputData.password !== inputData.cpassword) {
                 toast.error('password not matching!', {
                     position: "top-center",
@@ -33,6 +34,7 @@ const SignUp = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                setLaoding(false)
                 return;
             }
             const res = await axios.post(`/api/auth/signup`, inputData);
@@ -65,6 +67,7 @@ const SignUp = () => {
             navigate('/signin')
 
         } catch (error) {
+            setLaoding(false);
             toast.success(error.message, {
                 position: "top-center",
                 autoClose: 3000,
@@ -75,7 +78,7 @@ const SignUp = () => {
                 progress: undefined,
                 theme: "light",
             });
-            setLaoding(false);
+            
         }
 
     }
