@@ -46,10 +46,7 @@ const MyBlogs = () => {
                             <button onClick={() => navigate('/createblog')} className='px-4 bg-green-600 py-2 font-bold self-center rounded-md hover:scale-105'>CreateBlog</button>
                             <button onClick={() => navigate('/')} className='px-4 bg-green-600 py-2 font-bold self-center rounded-md hover:scale-105'>Home</button>
                         </div>
-                    </>) : ("")
-                }
-                {
-                    loading ? (<>
+                    </>) : ( loading ? (<>
                         <h1 className='flex justify-center text-2xl'>
                             Loading....
                         </h1>
@@ -71,7 +68,7 @@ const MyBlogs = () => {
                                     </div>
                                 ))}
                             </div>
-                        </>)
+                        </>))
                 }
             </div >
         </div>
