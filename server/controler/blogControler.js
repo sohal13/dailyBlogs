@@ -131,8 +131,9 @@ export const getBlogs =async(req,res,next)=>{
         const startIndex = parseInt(req.query.startIndex) || 0;
         const searchTerm = req.query.searchTerm || '';
         const listing = await Blog.find({
-            title:{$regex:searchTerm , $options:'i'},
-            description:{$regex:searchTerm , $options:'i'}
+          $or:[ {title:{$regex:searchTerm , $options:'i'}},
+            {description:{$regex:searchTerm , $options:'i'}},
+        ]
         }).limit(limit).skip(startIndex);
 
         return res.status(200).send(listing);
