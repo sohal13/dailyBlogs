@@ -125,3 +125,19 @@ export const userBlogs = async (req, res, next) => {
 }
 
 
+export const getBlogs =async(req,res,next)=>{
+    try {
+        const limit = parseInt(req.query.limit) || 9;
+        const startIndex = parseInt(req.query.startIndex) || 0;
+        const searchTerm = req.query.searchTerm || '';
+        const listing = await Blog.find({
+            title:{$regex:searchTerm , $options:'i'},
+            description:{$regex:searchTerm , $options:'i'}
+        }).limit(limit).skip(startIndex);
+
+        return res.status(200).send(listing);
+        
+    } catch (error) {
+        next(error)
+    }
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createBlog, deleteBlog, getAllblogs, getSingleblog, updateBlog, userBlogs } from '../controler/blogControler.js';
+import { createBlog, deleteBlog, getAllblogs, getBlogs, getSingleblog, updateBlog, userBlogs } from '../controler/blogControler.js';
 import { verifyToken } from '../utils/verifyUser.js';
 
 const router = express.Router();
@@ -15,6 +15,8 @@ router.post('/editblog/:id', verifyToken, updateBlog);
 router.delete('/deleteblog/:id', verifyToken, deleteBlog);
 
 router.get('/userblogs/:id', verifyToken, userBlogs);
+
+router.get('/get',getBlogs)
 
 
 

@@ -18,6 +18,7 @@ import CreateBlog from "./pages/CreateBlog"
 import MyBlogs from "./pages/MyBlogs"
 import EditBlog from "./pages/EditBlog"
 import About from "./pages/About"
+import SearchPage from "./pages/Searchpage"
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
           <Route path="/reset/:token" element={<ForgotResetPass />} />
           <Route path="/thisblog/:id" element={< SingleBlog />} />
           <Route path="/about" element={< About />} />
-
+          <Route path="/search" element={< SearchPage />} />
 
           <Route element={<PrivateRouts />}>
             <Route path="/profile" element={<Profile />} />

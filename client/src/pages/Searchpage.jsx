@@ -1,46 +1,51 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import blgdmoimg from '../assets/blogdmo.png';
-import { useNavigate } from 'react-router-dom'
-import BlogTime from '../components/BlogTime';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {useNavigate, useLocation } from 'react-router-dom';
+import BlogTime from "../components/BlogTime";
 
-const Allblogs = () => {
+const SearchPage =()=>{
+
+    const location = useLocation();
     const navigate = useNavigate();
-    const [blogs, setBlogs] = useState([]);
+    const[searchData , setSearchData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const getAllBlogs = async () => {
-            try {
-                setLoading(true)
-                const res = await axios.get('/api/blog/allblogs');
-                const data = await res.data;
-                if (data.success === false) {
-                    setLoading(false);
-                    console.log(data.message);
-                    return;
-                }
-                setBlogs(data.blogs);
-                setLoading(false)
-            } catch (error) {
-                console.log(error);
-                setLoading(false);
-            }
+useEffect(()=>{
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermUrl = urlParams.get('searchTerm');
+    if(searchTermUrl){
+        setSearchData(searchTermUrl)
+    }
+    const fetchData = async()=>{
+        try {
+            setLoading(true);
+            const searchQuery= urlParams.toString();
+            const res = await axios.get(`/api/blog/get?${searchQuery}`)
+            const data = await res.data;
+            setSearchData(data)
+            setLoading(false);           
+        } catch (error) {
+            setLoading(false)
+            console.log(error.message);
         }
-        getAllBlogs();
-    }, [])
-    return (
-        <div className='w-full h-full'>
-            <h1 className='flex justify-center text-3xl font-bold mt-2'>Blogs</h1>
-            {
+    }
+    fetchData();
+},[location.search])
+
+return(
+    <>
+    <div className="max-w-6xl mx-auto flex flex-col">
+        <h1 className="text-2xl font-bold p-3">Search Reasult:</h1>
+        <div className="">
+        {
                 loading ? (<>
                     <h1 className='flex justify-center text-2xl'>
                         Loading....
                     </h1>
                 </>) :
                     (<>
-                        <div className="flex flex-wrap justify-around mt-5 p-3 gap-6 ">
-                            {blogs.map((blog) => (
+                        <div className="flex flex-wrap justify-around mt-2 p-3 gap-6 ">
+                            {searchData.map((blog) => (
                                 <div key={blog._id} className="max-w-lg shadow-gray-600 hover:scale-105 w-[400px] h-auto sm:w-[300px] bg-green-500 rounded overflow-hidden shadow-lg">
                                     <img className="w-full h-[150px] sm:h-[250px]" src={blog.image} alt="image.png" />
                                     <div className="px-2 py-2">
@@ -54,10 +59,12 @@ const Allblogs = () => {
                                 </div>
                             ))}
                         </div>
+                        
                     </>)
             }
-        </div >
-    )
+        </div>
+    </div>
+    </>
+)
 }
-
-export default Allblogs;
+export default SearchPage;
