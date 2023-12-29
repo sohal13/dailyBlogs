@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <header className='bg-green-700 shadow-md'>
-            <div className='flex justify-between items-center max-w-6xl mx-auto p-1 sm:p-3'>
+            <div className='flex justify-between items-center h-[70px] max-w-6xl mx-auto p-1 sm:p-3'>
                 <Link to={'/'}> <h1 className='text-xl md:text-3xl font-bold font-sans text-yellow-500 flex flex-wrap'>Daily
                     <span className='text-white'>Blogs</span>
                 </h1></Link>

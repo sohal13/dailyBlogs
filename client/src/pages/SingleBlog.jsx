@@ -57,11 +57,11 @@ const SingleBlog = () => {
 
     console.log(blog);
     return (
-        <div className='max-w-6xl mx-auto flex flex-col'>
+        <div className='w-[90%] mx-auto flex flex-col'>
             {loading ? (<>
                 <h1 className='text-2xl font-bold flex justify-center mt-4'>LOADING...</h1></>) :
                 (<>
-                    <div className="rounded overflow-hidden shadow-lg mt-5">
+                    <div className="rounded overflow-hidden shadow-lg mt-5 bg-green-100">
                         {currentUser._id !== creater._id ? (
                             <div className='flex justify-between items-center px-2 bg-gray-500 py-2'>
                                 <div className='flex gap-2'>
@@ -79,7 +79,7 @@ const SingleBlog = () => {
                             </div>) : ("")}
                         <img className="w-screen h-[300px]" src={blog?.image} alt="image.png" />
                         <BlogTime blog={blog}/>
-                        <div className="px-2 py-2">
+                        <div className="px-2 py-2 ">
                             <div className="font-bold text-xl mb-2">{blog?.title}</div>
                             <p className="text-gray-700 text-base">
                                 {blog?.description}
