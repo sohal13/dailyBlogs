@@ -136,7 +136,7 @@ export const getBlogs =async(req,res,next)=>{
         }).limit(limit).skip(startIndex);
 
         return res.status(200).send(listing);
-        
+
     } catch (error) {
         next(error)
     }
