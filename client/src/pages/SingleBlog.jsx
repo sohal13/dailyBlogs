@@ -55,7 +55,6 @@ const SingleBlog = () => {
         }
     }
 
-    console.log(blog);
     return (
         <div className='w-[90%] mx-auto flex flex-col'>
             {loading ? (<>
