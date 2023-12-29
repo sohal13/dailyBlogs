@@ -41,7 +41,7 @@ const Allblogs = () => {
                     (<>
                         <div className="flex flex-wrap justify-around mt-5 p-3 gap-6 ">
                             {blogs.map((blog) => (
-                                <div key={blog._id} className="max-w-sm shadow-gray-600 hover:scale-105 w-[200px] h-auto sm:w-[300px] bg-green-500 rounded overflow-hidden shadow-lg">
+                                <div key={blog._id} className="max-w-lg shadow-gray-600 hover:scale-105 w-[400px] h-auto sm:w-[300px] bg-green-500 rounded overflow-hidden shadow-lg">
                                     <img className="w-full h-[150px] sm:h-[250px]" src={blog.image} alt="image.png" />
                                     <div className="px-2 py-2">
                                         <div className="font-bold text-xl mb-2 ">{blog.title}</div>
