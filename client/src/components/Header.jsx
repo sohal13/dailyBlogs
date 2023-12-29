@@ -18,8 +18,8 @@ const Header = () => {
                         className='bg-transparent focus:outline-none w-32 sm:w-64' />
                     <FaSearch size={30} className='cursor-pointer hover:bg-yellow-500 rounded-lg p-1 items-end' />
                 </form>
-                <ul className='flex sm:w-64 justify-around text-xl font-bold text-white'>
-                    <Link to={'/'}><li className='hover:bg-green-900 px-1 rounded-lg cursor-pointer hidden sm:inline'>
+                <ul className='flex sm:w-64 items-center justify-around text-2xl font-bold text-white'>
+                    <Link to={'/'}><li className='hover:bg-green-900  px-1 rounded-lg cursor-pointer hidden sm:inline'>
                         Home</li></Link>
                     <Link to={'/allblogs'}><li className='hover:bg-green-900 px-1 rounded-lg cursor-pointer hidden sm:inline'>
                         AllBlogs</li></Link>
