@@ -86,7 +86,7 @@ const SignUp = () => {
     return (
         <div className='max-w-6xl mx-auto flex justify-center items-center h-[90vh]'>
             <div className='flex flex-col bg-green-700 gap-4 w-72 h-auto rounded-lg py-4'>
-                <h1 className='text-center text-4xl font-bold text-yellow-400 '>Len<span className='text-white'>Den</span></h1>
+                <h1 className='text-center text-4xl font-bold text-yellow-400 '>Daily<span className='text-white'>Blogs</span></h1>
                 <form onSubmit={handelSubmit} className='flex flex-col gap-4 px-4 text-black'>
                     <input type='text' placeholder='Name...'
                         className='rounded-lg p-1'
